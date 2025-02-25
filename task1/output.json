@@ -1,0 +1,74 @@
+[
+  {
+    "name":"John Doe",
+    "flightTimeSummaryMap":{
+      "2021-01":{
+        "totalFlightTime":54,
+        "exceeds80Hours":false,
+        "exceeds36HoursInAWeek":true,
+        "exceeds8HoursInADay":true
+      }
+    }
+  },
+  {
+    "name":"Kirill Uchaev",
+    "flightTimeSummaryMap":{
+      "2021-02":{
+        "totalFlightTime":116,
+        "exceeds80Hours":true,
+        "exceeds36HoursInAWeek":true,
+        "exceeds8HoursInADay":true
+      },
+      "2021-01":{
+        "totalFlightTime":38,
+        "exceeds80Hours":false,
+        "exceeds36HoursInAWeek":true,
+        "exceeds8HoursInADay":true
+      }
+    }
+  },
+  {
+    "name":"Danil Yakimov",
+    "flightTimeSummaryMap":{
+      "2021-01":{
+        "totalFlightTime":10,
+        "exceeds80Hours":false,
+        "exceeds36HoursInAWeek":false,
+        "exceeds8HoursInADay":true
+      }
+    }
+  },
+  {
+    "name":"Angelina Chokolatte",
+    "flightTimeSummaryMap":{
+      "2021-01":{
+        "totalFlightTime":10,
+        "exceeds80Hours":false,
+        "exceeds36HoursInAWeek":false,
+        "exceeds8HoursInADay":true
+      }
+    }
+  },
+  {
+    "name":"Alice Brown",
+    "flightTimeSummaryMap":{
+      "2021-01":{
+        "totalFlightTime":11,
+        "exceeds80Hours":false,
+        "exceeds36HoursInAWeek":false,
+        "exceeds8HoursInADay":true
+      }
+    }
+  },
+  {
+    "name":"Jane Smith",
+    "flightTimeSummaryMap":{
+      "2021-01":{
+        "totalFlightTime":28,
+        "exceeds80Hours":false,
+        "exceeds36HoursInAWeek":false,
+        "exceeds8HoursInADay":true
+      }
+    }
+  }
+]
