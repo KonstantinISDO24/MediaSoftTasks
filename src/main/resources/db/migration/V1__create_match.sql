@@ -1,5 +1,5 @@
 CREATE TABLE match (
-    id SERIAL PRIMARY KEY,
+    ID SERIAL PRIMARY KEY,
     season VARCHAR(50) NOT NULL,
     match_date TIMESTAMP NOT NULL,
     home_team VARCHAR(255) NOT NULL,

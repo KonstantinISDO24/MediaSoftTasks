@@ -19,7 +19,7 @@ public class MatchService {
         this.matchRepository = matchRepository;
     }
 
-    public void registerMatch(MatchDto matchDto) {
+    public Match registerMatch(MatchDto matchDto) {
         Match match = new Match();
         match.setSeason(matchDto.getSeason());
         match.setMatchDate(matchDto.getMatchDate());
@@ -28,12 +28,13 @@ public class MatchService {
         match.setHomeScore(matchDto.getHomeScore());
         match.setAwayScore(matchDto.getAwayScore());
 
-        matchRepository.save(match);
+        return matchRepository.save(match);
     }
 
-    public Map<String, Integer> getStandings(String season, LocalDate date) {
+    public Map<String, Map<String, Integer>> getStandings(String season, LocalDate date) {
         List<Match> matches = matchRepository.findBySeasonAndMatchDateBefore(season, date);
         Map<String, Integer> standings = new TreeMap<>();
+        Map<String, Integer> gamesPlayed = new TreeMap<>();
 
         for (Match match : matches) {
             String homeTeam = match.getHomeTeam();
@@ -41,6 +42,11 @@ public class MatchService {
 
             standings.putIfAbsent(homeTeam, 0);
             standings.putIfAbsent(awayTeam, 0);
+            gamesPlayed.putIfAbsent(homeTeam, 0);
+            gamesPlayed.putIfAbsent(awayTeam, 0);
+
+            gamesPlayed.put(homeTeam, gamesPlayed.get(homeTeam) + 1);
+            gamesPlayed.put(awayTeam, gamesPlayed.get(awayTeam) + 1);
 
             if (match.getHomeScore() > match.getAwayScore()) {
                 standings.put(homeTeam, standings.get(homeTeam) + 3);
@@ -52,7 +58,11 @@ public class MatchService {
             }
         }
 
-        return standings;
+        Map<String, Map<String, Integer>> result = new HashMap<>();
+        result.put("standings", standings);
+        result.put("gamesPlayed", gamesPlayed);
+
+        return result;
     }
 
 }
